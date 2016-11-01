@@ -1,0 +1,162 @@
+<!-- 일반적으로는 <head>에 해당하는 부분은 layout/application.html.erb에 포함시킵니다. 하지만 이 github파일에서는 어피치북과 피치터의 경우를 모두 다루고 있고,
+각각의 사이트에 다른 <head>부분이 적용되기에 부득이하게 index.html.erb파일에 <head>를 포함시켰습니다. 물론 layout/application.html.erb에서도
+모든 view가 아닌, 특정 view에만 적용되는 <head>를 적용시킬 수 있지만 이번 과정에서는 넘어갔습니다. -->
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>apeachter[피치터]</title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Fixed header with independent scrolling left nav and right content." />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <!-- nav bar 부분 -->
+    <div class="row" style="margin-top:1em;">
+      <div class="col-md-2">
+        <img src="/peachter-logo.png">
+        <span><b>Peachter</b></span>
+      </div>
+      <div class="col-md-4 col-md-offset-6">
+        <input type="text" class="form-control" placeholder="피치터 검색하기" name="srch-term" id="srch-term">
+      </div>
+    </div>
+    <!-- nav bar 부분 -->
+    <!-- 피치터 로고 -->
+    <div class="row" style="margin-top:1em; margin-bottom:1em;">
+      <img src="/peachter-main.png">
+    </div>
+    <!-- 피치터 로고 -->
+    <div class="row" style="text-align:center;">
+      <div class="col-md-1">
+        <p>트윗</p>
+        <b><h4 class="twitter_color">1,004</h4></b>
+      </div>
+      <div class="col-md-1">
+        <p>팔로잉</p>
+        <b><h4 class="twitter_color">23</h4></b>
+      </div>
+      <div class="col-md-1">
+        <p>팔로워</p>
+        <b><h4 class="twitter_color">5,000</h4></b>
+      </div>
+
+
+
+
+
+      <!-- ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Create하는 부분입니다 ******* -->
+      <form>
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="무슨 일이 일어나고 있나요?">
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-info">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;트윗하기
+          </button>
+        </div>
+      </form>
+      <!-- ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Create하는 부분입니다 ******* -->
+
+
+
+
+
+      <!-- 나중에 1:N 개념을 이용하여 '좋아요' 기능을 구현해보세요! -->
+      <div class="col-md-2">
+        <a type="button" class="followbutton" aria-label="Left Align">
+          <span class="glyphicon glyphicon-user twitter_color" aria-hidden="true"></span>
+          <span class="twitter_color">+</span>
+          <b>팔로우</b>
+        </a>
+      </div>
+      <!-- 나중에 1:N 개념을 이용하여 '좋아요' 기능을 구현해보세요! -->
+    </div>
+    <!-- 이 실습에서는 전체 row를 col-md-3 / col-md-6 / col-md-3 으로 나누어서 처음 3칸은 어피치의 프로필을, 가운데 6칸에는 CRUD로 작성한 글이 나타나도록, 마지막 3칸은 어피치의 친구들이 나타나도록 하였습니다 -->
+    <div class="row contents" style="margin-bottom;5em;">
+      <!-- 어피치의 프로필 -->
+      <div class="col-md-3">
+        <b><h3>I'm Apeach</h3></b>
+        <p class="user_email">@apeachapeach</p>
+        <h4>안녕하세요! 어피치입니다</h4>
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;가입일 : 2016년 10월<br>
+        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;출생 : 경기도 이천시 장호원 복숭아농장 8번나무
+      </div>
+      <!-- 어피치의 프로필 -->
+      <div class="col-md-6">
+        <div class="panel panel-default">
+
+
+
+
+          <!--  ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Read할 수 있도록 표시하는 부분입니다. each do 문법을 이용하여 게시글을 표시해보세요! *******  -->
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="/peachter-profile.png">
+              </div>
+              <div class="col-md-10">
+                <b>어피치</b>&nbsp;<span class="user_email">@apeachapeach 2시간</span><br>
+                <p>나 어피치는 유전자변이로 자웅동주가 된 것을 알고 복숭아 나무에서 탈출했다. 섹시한 뒤태로 사람들을 매혹시키지 후후</p>
+                <span class="glyphicon glyphicon-share-alt user_email" aria-hidden="true"></span>&emsp;&emsp;&nbsp;
+                <span class="glyphicon glyphicon-retweet retweet_color" aria-hidden="true"></span>&nbsp;180&emsp;
+                <span class="glyphicon glyphicon-heart like_color" aria-hidden="true"></span>&nbsp;40
+              </div>
+            </div>
+          </div><hr>
+          <!--  ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Read할 수 있도록 표시하는 부분입니다. each do 문법을 이용하여 게시글을 표시해보세요! *******  -->
+
+
+
+
+
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="/peachter-profile.png">
+              </div>
+              <div class="col-md-10">
+                <b>어피치</b>&nbsp;<span class="user_email">@apeachapeach 3시간</span><br>
+                <p>드디어 태양이 내 의지에 반응하여 밝게 빛나는건가!!<br>애들아 뭐하는거야!!,가만히 있지만 말고 너희 몸속에 있는 또다른 자아를 꺼내!!</p>
+                <span class="glyphicon glyphicon-share-alt user_email" aria-hidden="true"></span>&emsp;&emsp;&nbsp;
+                <span class="glyphicon glyphicon-retweet retweet_color" aria-hidden="true"></span>&nbsp;230&emsp;
+                <span class="glyphicon glyphicon-heart like_color" aria-hidden="true"></span>&nbsp;120
+              </div>
+            </div>
+          </div><hr>
+          <!-- 3번 게시글이 보여지는 공간 -->
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="/peachter-profile.png">
+              </div>
+              <div class="col-md-10">
+                <b>어피치</b>&nbsp;<span class="user_email">@apeachapeach 5시간</span><br>
+                <p>난... ㄱㅏ끔...<br>눈물을 흘린ㄷㅏ...</p>
+                <span class="glyphicon glyphicon-share-alt user_email" aria-hidden="true"></span>&emsp;&emsp;&nbsp;
+                <span class="glyphicon glyphicon-retweet retweet_color" aria-hidden="true"></span>&nbsp;30&emsp;
+                <span class="glyphicon glyphicon-heart like_color" aria-hidden="true"></span>&nbsp;17
+              </div>
+            </div>
+          </div>
+          <!-- 게시글이 보여지는 공간 -->
+        </div>
+      </div>
+      <div class="col-md-3">
+        <b><h3>Apeach님의 친구들</h3></b>
+        <p class="user_email">새로운 친구들을 만나보세요!</p><hr>
+        <img src="/frodo-profile.png">&nbsp;
+        <img src="/neo-profile.jpg">&nbsp;<p class="user_email">@king_frodo&emsp;&emsp;&emsp;&emsp;&nbsp;@prettyneo<br><b>프로도 대왕&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;프리티네오</b></p><hr>
+        <img src="/muji-profile.jpg">&nbsp;
+        <img src="/jayg-profile.jpg">&nbsp;<p class="user_email">@cutie_muji&emsp;&emsp;&emsp;&emsp;&nbsp;@hiptohop_jayG<br><b>귀요미 무지&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;힙통령 jayG</b></p><hr>
+        <img src="/tube-profile.png"><p class="user_email">@enjoylife_tube<br><b>즐기는 인생_튜브</b></p>
+      </div>
+    </div>
+  </div>
+</body>
