@@ -52,9 +52,9 @@
 
 
       <!-- ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Create하는 부분입니다 ******* -->
-      <form>
+      <form action="/peachter/write" method="post">
         <div class="col-md-6">
-          <input type="text" class="form-control" placeholder="무슨 일이 일어나고 있나요?">
+          <input type="text" class="form-control" placeholder="무슨 일이 일어나고 있나요?" name="content">
         </div>
         <div class="col-md-1">
           <button type="submit" class="btn btn-info">
@@ -96,20 +96,22 @@
 
 
           <!--  ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Read할 수 있도록 표시하는 부분입니다. each do 문법을 이용하여 게시글을 표시해보세요! *******  -->
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-2">
-                <img src="/peachter-profile.png">
+          <% @post.each do |p| %>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-2">
+                  <img src="/peachter-profile.png">
+                </div>
+                <div class="col-md-10">
+                  <b>어피치</b>&nbsp;<span class="user_email">@apeachapeach 2시간</span><br>
+                  <p><%= p.content %></p>
+                  <span class="glyphicon glyphicon-share-alt user_email" aria-hidden="true"></span>&emsp;&emsp;&nbsp;
+                  <span class="glyphicon glyphicon-retweet retweet_color" aria-hidden="true"></span>&nbsp;180&emsp;
+                  <span class="glyphicon glyphicon-heart like_color" aria-hidden="true"></span>&nbsp;40
+                </div>
               </div>
-              <div class="col-md-10">
-                <b>어피치</b>&nbsp;<span class="user_email">@apeachapeach 2시간</span><br>
-                <p>나 어피치는 유전자변이로 자웅동주가 된 것을 알고 복숭아 나무에서 탈출했다. 섹시한 뒤태로 사람들을 매혹시키지 후후</p>
-                <span class="glyphicon glyphicon-share-alt user_email" aria-hidden="true"></span>&emsp;&emsp;&nbsp;
-                <span class="glyphicon glyphicon-retweet retweet_color" aria-hidden="true"></span>&nbsp;180&emsp;
-                <span class="glyphicon glyphicon-heart like_color" aria-hidden="true"></span>&nbsp;40
-              </div>
-            </div>
-          </div><hr>
+            </div><hr>
+          <% end %>
           <!--  ******* 수업시간에 배운 CRUD를 이용하여 게시글을 Read할 수 있도록 표시하는 부분입니다. each do 문법을 이용하여 게시글을 표시해보세요! *******  -->
 
 
